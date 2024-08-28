@@ -1,0 +1,46 @@
+﻿@page
+@model deneme4.Pages.Person.EditModel
+@{
+}
+
+
+<form method="post">
+
+    <div class="centerrr">
+        <partial name="message" />
+        <h2 style="color:white;">
+            Edit Your Infos;
+        </h2>
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Person.Id" class="form-control" />
+
+
+            <div class="form-group">
+                <label asp-for="Person.Name" style="color:white;"></label>
+                <input asp-for="Person.Name" class="form-control" />
+                <span class="text-danger" asp-validation-for="Person.Name"></span>
+            </div>
+            <br />
+            <h2 style="color:white;">
+                Your email;
+            </h2>
+            <div class="form-group">
+                <label asp-for="Person.Email" style="color:white;"></label>
+                <input asp-for="Person.Email" class="form-control" />
+                <span asp-validation-for="Person.Email"></span>
+            </div>
+
+            <br />
+
+            <div class="my-2"></div>
+            <button type="submit" style="background-color:sandybrown;padding:2%; border-radius:20%; margin-left:5%;"><h4> Update</h4></button>
+            <a asp-page="DisplayAll" class="btn btn-default" style="color:white;">
+                All records
+            </a>
+
+            <br />
+            <br />
+        </form>
+    </div>
+</form>
+}

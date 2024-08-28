@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food-for-Wood</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/deneme4.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color:gray;">&times;</a>
+            <a href="Index" style="color:gray;">Services</a>
+            <a href="Recipes/Recipes" style="color:gray;">About</a>
+            <a class="nav-link" asp-page="Person/Display" style="color:gray;">Clients</a>
+            <a class="nav-link" asp-page="Person/Create" style="color:gray;">Sign up</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer; background-color:#281508; padding:1%; color:white; border-radius:10%; opacity:0.7;" onclick="openNav()">&#9776; open</span>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container" style="color:white;">
+           &copy; 2024 - food for wood by ilayda POLAT - 
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

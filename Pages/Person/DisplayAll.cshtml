@@ -1,0 +1,36 @@
+﻿@page
+@model deneme4.Pages.Person.DisplayAllModel
+@{
+}
+<a asp-page="Create" class="btn btn-danger">Get signed up!</a>
+
+
+<div>
+    <partial name="message" />
+    <table class="table tabletable-bordered table-striped">
+        <thead>
+            <tr>
+                <th> <h1 style="color:white;">Name</h1></th>
+                <th><h1 style="color:white;">Email</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            <hr style="color:white;">
+            @foreach (var person in Model.People)
+            {
+                <tr>
+                    <td style="color:white;">@person.Name</td>
+                    <td style="color:white;">@person.Email</td>
+                    <td>
+                        <div>
+                            <a asp-page="Edit" asp-route-id="@person.Id" class="btn btn-danger">Edit</a>
+                            <form asp-action="DisplayAll">
+                                <button class="btn btn-danger" asp-page-handler="Delete" asp-route-id="@person.Id"> Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
